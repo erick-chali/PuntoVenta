@@ -11,12 +11,22 @@
         <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
         <link type="text/css" rel="stylesheet" href="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.css">
         <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+        <link type="text/css" rel="stylesheet" href="css/pushy.css">
         <link type="text/css" rel="stylesheet" href="css/style.css">
-        
     </head>
     <body>
+    
+    <!-- Pushy Menu -->
+        <nav class="pushy pushy-left">
+            <ul>
+                <li><a href="pv.jsp">Punto Venta</a></li>
+                <li><a href="Logout">Cerrar Sesi&oacute;n</a></li>
+            </ul>
+        </nav>
+        <div class="site-overlay"></div>
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <!--  
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="barraNavegacion">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -38,11 +48,12 @@
           	<li></li>
             <li><a href="Logout"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Cerrar Sesion</a></li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </nav>
-    
-    
+    -->
+    <!-- FIXED NAVBAR -->
+    <div id="container">
         <div class="panel panel-default">
                 <div class="panel-body">
                     
@@ -90,6 +101,9 @@
                     </button>
                     <button type="button" id="agregarFila" class="btn btn-primary btn-sm" >
                     	<span class="glyphicon glyphicon-plus" aria-hidden="true" ></span>
+                    </button>
+                    <button type="button" id="barra" class="btn btn-primary btn-sm menu-btn">
+                    	<span id="superiorDown" class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
                     </button>
                     <div class="well well-sm">
                     		<div id="toolbar">
@@ -463,7 +477,7 @@
 		    </div>
 		  </div>
 		</div><!-- FIN DE MODAL -->
-		
+		</div>
     <script type="text/javascript" src="js/jquery-1.5.min.js"></script>
 	<script type="text/javascript">
 		var $jq = jQuery.noConflict();
@@ -474,6 +488,7 @@
 	<script src="js/maskedinput.min.js"></script>
 	<script src="js/BeatPicker.min.js"></script>
 	<script src="js/jquery.freezeheader.js"></script>
+	<script src="js/pushy.min.js"></script>
 	<script src="js/script.js"></script>
 	<script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
 	<script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>

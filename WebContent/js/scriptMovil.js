@@ -135,17 +135,18 @@
 		   }else{
 			   $('#indice').text($(this).parent().index());
 			   $('#divFormaPago').removeClass('has-error');
-			   $('.codigoProducto').editable(function(value, settings) {
-				     return(value);
-				  }, {
-				     onblur  : 'cancel',
-				     event   : 'dblclick',
-				     style   : 'inherit',
-				     callback : function(value, settings) {
-				    	 traerProducto(value, separarTexto(0, $('#fPago').val()), $('#codigoLista').text() ,$('#indice').text());
-				    	 
-				     }
-				  });
+//			   $('.codigoProducto').editable(function(value, settings) {
+//				     return(value);
+//				  }, {
+//				     onblur  : 'cancel',
+//				     event   : 'dblclick',
+//				     style   : 'inherit',
+//				     callback : function(value, settings) {
+//				    	 traerProducto(value, separarTexto(0, $('#fPago').val()), $('#codigoLista').text() ,$('#indice').text());
+//				    	 
+//				     }
+//				  });
+			   $('#ingresoProducto').modal('toggle');
 		   }
 	   });
 	   $(document).on('click', '.cantidad', function (){
