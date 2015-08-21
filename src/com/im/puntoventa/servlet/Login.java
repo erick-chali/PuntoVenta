@@ -62,6 +62,8 @@ public class Login extends HttpServlet {
 			sesion.setAttribute("vendedor", datos.getNombre());
 			sesion.setAttribute("usuarioID", datos.getUsuarioID());
 			sesion.setAttribute("codigoVendedor", datos.getCodigoVendedor());
+			sesion.setAttribute("nombreEmpresa", datos.getNombreEmpresa());
+			sesion.setAttribute("moneda", datos.getMoneda());
 			sesion.setMaxInactiveInterval(30*30);
 			
 			response.sendRedirect("pv.jsp");

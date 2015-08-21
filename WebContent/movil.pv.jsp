@@ -6,7 +6,7 @@
         <meta charset="utf-8" lang="es">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Punto Venta M&oacute;vil</title>
+        <title>PUNTO VENTA</title>
         
         <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
         <link type="text/css" rel="stylesheet" href="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.css">
@@ -14,10 +14,18 @@
         <link type="text/css" rel="stylesheet" href="css/pushy.css">
         <link type="text/css" rel="stylesheet" href="css/style.css">
     </head>
-    <body style="padding-top: 40px;">
+    <body>
     
+    <!-- Pushy Menu -->
+        <nav class="pushy pushy-left">
+            <ul>
+                <li><a href="pv.jsp">Punto Venta</a></li>
+                <li><a href="Logout">Cerrar Sesi&oacute;n</a></li>
+            </ul>
+        </nav>
+        <div class="site-overlay"></div>
     <!-- Fixed navbar -->
-    
+    <!--  
     <nav class="navbar navbar-inverse navbar-fixed-top" id="barraNavegacion">
       <div class="container">
         <div class="navbar-header">
@@ -30,10 +38,10 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="movil.pv.jsp">Punto venta</a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
+            <li class="active"><a href="pv.jsp">Punto venta</a></li>
+            <li><a href="datoscliente.jsp">Ingreso Datos Cliente</a></li>
+            <li><a href="">Cambio Tipo Cliente</a></li>
+            <li><a href="">Cambio Vendedor</a></li>
             
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -43,62 +51,13 @@
         </div>
       </div>
     </nav>
-    
+    -->
     <!-- FIXED NAVBAR -->
+    <div id="container">
         <div class="panel panel-default">
                 <div class="panel-body">
-                    
-                    <div class="well well-sm" id="parteSuperior">
-                    	
-                    	<div class="row">
-                        <div class="col-sm-4 col-md-4">
-                                <h6>Forma de Pago</h6>
-                            <div class="input-group" id="divFormaPago">
-                                <input type="text" class="form-control input-sm" placeholder="Forma Pago" id="fPago">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary btn-sm" type="button" id="f1">F1</button>
-                                </span>
-                            </div><!-- /input-group -->
-                        </div>
-                        <div class="col-sm-4 col-md-4">
-                            <h6>Tipo Credito</h6>
-                            <select class="form-control input-sm" id="tCredito" disabled> 
-                            	<option value="">Tipos de cr&eacute;dito</option>
-                            	<option value="1">credito</option>
-                            	<option value="2">contado</option>
-                            </select> 
-                        </div>
-                        <div class="col-sm-4 col-md-4">
-                            <h6>Limite Credito</h6>
-                            <div class="input-group">
-                            	<span class="input-group-addon">Q.</span>
-                                <input type="text" class="form-control input-sm" placeholder="Limite de Cr&eacute;dito" id="lCredito" disabled>
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary btn-sm" type="button" id="exp">
-                                    	<span class="glyphicon glyphicon-export" aria-hidden="true"></span>
-                                    </button>
-                                </span>
-                            </div><!-- /input-group -->
-                        </div>
-                        
-                    </div><!--fin de fila-->
-                    	
-                    	
-                    
-                    </div>
-                    
-                    <button type="button" id="ocultarSuperior" class="btn btn-primary btn-sm">
-                    	<span id="superiorDown" class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-                    </button>
-                    <button type="button" id="agregarFila" class="btn btn-primary btn-sm" >
-                    	<span class="glyphicon glyphicon-plus" aria-hidden="true" ></span>
-                    </button>
-                    <button type="button" id="barra" class="btn btn-primary btn-sm menu-btn">
-                    	<span id="superiorDown" class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-                    </button>
-                    <div class="well well-sm">
-                    		<div id="toolbar">
-                    			
+                    			<p class="text-center" style="font-weight: bold; font-size: large;">${nombreEmpresa}</p>
+                    <div id="toolbar">
                     			<label id="indice">0</label>
                     			<label id="codigoCliente"></label>
                     			<label id="codigoProd"></label>
@@ -111,6 +70,59 @@
                     			<label id="fechaPrueba"></label>
                     			<label id="autoriza"></label>
                     		</div>
+                    
+                    
+                    <div class="well well-sm" id="parteInferior">
+                    	<div class="row">
+                    	<div class="col-sm-3 col-md-3">
+                    		<button type="button" id="agregarFila" class="btn btn-primary btn-sm" style="margin-top: 2px;">
+                    			<span class="glyphicon glyphicon-plus" aria-hidden="true" ></span>
+                    		</button>
+                    		<button type="button" id="barra" class="btn btn-primary btn-sm menu-btn" style="margin-top: 2px;">
+                    			<span id="superiorDown" class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                    		</button>
+                    	</div>
+                    	<div class="col-sm-1 col-md-1" >
+                    	<h6 style="color: #c12929;">Forma Pago</h6>
+                    	</div>
+                        <div class="col-sm-2 col-md-2">
+                                
+                            <div class="input-group" id="divFormaPago">
+                                <input type="text" class="form-control input-sm" placeholder="Forma Pago" id="fPago">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary btn-sm" type="button" id="f1">F1</button>
+                                </span>
+                            </div><!-- /input-group -->
+                        </div>
+                        <div class="col-sm-1 col-md-1" >
+                    		<h6 style="color: #c12929;">Tipo Credito</h6>
+                    	</div>
+                        <div class="col-sm-2 col-md-2">
+                            
+                            <select class="form-control input-sm" id="tCredito" disabled> 
+                            	<option value="">Tipos de cr&eacute;dito</option>
+                            	<option value="1">credito</option>
+                            	<option value="2">contado</option>
+                            </select> 
+                        </div>
+                        <div class="col-sm-1 col-md-1">
+                        	<h6 style="color: #c12929;">Limite Credito</h6>
+                        </div>
+                        <div class="col-sm-2 col-md-2">
+                            
+                            <div class="input-group">
+                            	<span class="input-group-addon">${moneda}</span>
+                                <input type="text" class="form-control input-sm" placeholder="Limite de Cr&eacute;dito" id="lCredito" disabled>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary btn-sm" type="button" id="exp">
+                                    	<span class="glyphicon glyphicon-export" aria-hidden="true"></span>
+                                    </button>
+                                </span>
+                            </div><!-- /input-group -->
+                        </div>
+                        
+                    </div><!--fin de fila-->
+                    		
 
                     	<!-- <div class="table-responsive" id="contenedorDatosVarios"> -->
                     	
@@ -166,12 +178,13 @@
   						<span class="glyphicon glyphicon-save" aria-hidden="true" ></span> Grabar
 					</button>
                     
-                    <div class="well well-sm" id="parteInferior">
+                    <div class="well well-sm" style="margin-top: 3px;">
                     	
                     	<div class="row">
-                        <div class="col-sm-3 col-md-3">
-                        		
-	                    	<h6>Tipo Documento</h6>
+                    	<div class="col-sm-1 col-md-1">
+                    		<h6 style="color: #c12929;">Tipo Doc.</h6>
+                    	</div>
+                        <div class="col-sm-2 col-md-2">
 		                    	<div class="input-group">
 		                        	<input type="text" class="form-control input-sm" placeholder="Tipo Documento" id="tDoc">
 		                           	<span class="input-group-btn">
@@ -179,8 +192,10 @@
 		                           	</span>
 		                        </div><!-- /input-group -->
                         </div>
-                        <div class="col-sm-3 col-md-3">
-                            <h6>No. Documento</h6>
+                        <div class="col-sm-1 col-md-1">
+                    		<h6 style="color: #c12929;">No. Doc.</h6>
+                    	</div>
+                        <div class="col-sm-2 col-md-2">
                             <div class="input-group">
                                 <input type="text" class="form-control input-sm" placeholder="No. Documento" id="nDoc">
                                 <span class="input-group-btn">
@@ -188,18 +203,27 @@
                                 </span>
                             </div><!-- /input-group -->
                         </div>
-                        <div class="col-sm-3 col-md-3">
-                        	<h6>Fecha Vencimiento</h6>
+                        <div class="col-sm-1 col-md-1">
+                        	<h6 style="color: #c12929;">F. Vence</h6>
+                        </div>
+                        <div class="col-sm-2 col-md-2">
+                        	
                            	<input type="text" class="form-control input-sm" id="fechaVencimiento" disabled>
                         </div>
-                        
+                        <div class="col-sm-1 col-md-1">
+                    		<h6 style="color: #c12929;">F. Entrega</h6>
+                    	</div>
+                        <div class="col-sm-2 col-md-2">
+                            <input type="text" class="form-control input-sm" id="fechaEntrega">
+                        </div>
                     </div><!--fin de fila-->
                     
                     
                     	<div class="row">
-                        <div class="col-sm-3 col-md-3">
-                            <h6>Nit</h6>
-<!--                            <label for="nit">NIT</label>-->
+                    	<div class="col-sm-1 col-md-1">
+                        	<h6 style="color: #c12929;">Nit</h6>
+                        </div>
+                        <div class="col-sm-2 col-md-2">
                             <div class="input-group">
                                 <input type="text" class="form-control input-sm" placeholder="NIT" id="nit">
                                 <span class="input-group-btn">
@@ -207,38 +231,42 @@
                                 </span>
                             </div><!-- /input-group -->
                         </div>
-                        <div class="col-sm-3 col-md-3">
-<!--                            <label for="nombre">Nombre Cliente</label>-->
-                            <h6>Nombre Cliente</h6>
+                        <div class="col-sm-1 col-md-1">
+                        	<h6 style="color: #c12929;">Nombre</h6>
+                        </div>
+                        <div class="col-sm-2 col-md-2">
                             <input type="text" class="form-control input-sm" id="nombre" placeholder="Nombre Cliente">     
                         </div>
-                        <div class="col-sm-6 col-md-6">
-<!--                            <label for="direcF">Dirección Factura</label>-->
-                            <h6>Dirección Factura</h6>
+                        
+                        <div class="col-sm-1 col-md-1">
+                        	<h6 style="color: #c12929;">Direc. Fac.</h6>
+                        </div>
+                        <div class="col-sm-2 col-md-2">
                             <input class="form-control input-sm" type="text" id="direcF" placeholder="Dirección Factura">
+                        </div>
+                        <div class="col-sm-1 col-md-1">
+                        	<h6 style="color: #c12929;">Direc. Env.</h6>
+                        </div>
+                        <div class="col-sm-2 col-md-2">
+                            <input class="form-control input-sm" type="text" id="direcE" placeholder="Dirección Envío">
                         </div>
                     </div><!--fin de fila-->
                     
-                    <div class="row" style="margin-top: 5px">
+                    <div class="row">
+                    	<div class="col-sm-1 col-md-1">
+                    		<h6 style="color: #c12929;">Teléfono</h6>
+                    	</div>
                         <div class="col-sm-2 col-md-2">
-<!--                            <label for="telefono">Teléfono</label>-->
-                            <h6>Teléfono</h6>
                             <input type="tel" class="form-control input sm" id="telefono" placeholder="Teléfono">
                         </div>
+                        <div class="col-sm-1 col-md-1">
+                    		<h6 style="color: #c12929;">Tarjeta</h6>
+                    	</div>
                         <div class="col-sm-2 col-md-2">
-                            <h6>Tarjeta</h6>
-<!--                            <label for="tarjeta">Tarjeta</label>-->
                             <input type="text" class="form-control input-sm" id="tarjeta" placeholder="Tarjeta" >     
                         </div>
-                        <div class="col-sm-2 col-md-2">
-                            <h6>Fecha Entrega</h6>
-                            <input type="text" class="form-control input-sm" id="fechaEntrega">
-                        </div>
-                        <div class="col-sm-6 col-md-6">
-                            <h6>Dirección Envío</h6>
-<!--                            <label for="direcE">Dirección Envío</label>-->
-                            <input class="form-control input-sm" type="text" id="direcE" placeholder="Dirección Envío">
-                        </div>
+                        
+                        
                     </div><!--fin de fila-->
                     
                     
@@ -468,29 +496,7 @@
 		    </div>
 		  </div>
 		</div><!-- FIN DE MODAL -->
-		
-		<!-- Modal INGRESO DE PRODUCTOS -->
-		<div id="ingresoProducto" class="modal" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="true" tabindex="-1">
-		  <div class="modal-dialog modal-lg">
-		    <!-- Modal content-->
-		    <div class="modal-content">
-		      <div class="modal-header">
-		      	<button type="button" class="close visible-sm visible-xs" data-dismiss="modal">&times;</button>
-		        <h4 class="modal-title" id="tituloModalKit">Detalles de Producto</h4>
-		      </div>
-		      <div class="modal-body">
-		      	
-		      	<div id="contenedorKits">
-		      		 
-		      	</div>
-		        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal" style="margin-top: 10px;" id="cancelar">Cancelar</button>
-		      </div>
-		      <div class="modal-footer">
-		      	<p id="notificacion" class="text-danger"></p>
-		      </div>
-		    </div>
-		  </div>
-		</div><!-- FIN DE MODAL -->
+		</div>
     <script type="text/javascript" src="js/jquery-1.5.min.js"></script>
 	<script type="text/javascript">
 		var $jq = jQuery.noConflict();
@@ -502,7 +508,7 @@
 	<script src="js/BeatPicker.min.js"></script>
 	<script src="js/jquery.freezeheader.js"></script>
 	<script src="js/pushy.min.js"></script>
-	<script src="js/scriptMovil.js"></script>
+	<script src="js/script.js"></script>
 	<script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
 	<script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
 	

@@ -56,8 +56,8 @@
     <div id="container">
         <div class="panel panel-default">
                 <div class="panel-body">
+                    			<p class="text-center" style="font-weight: bold; font-size: large;">${nombreEmpresa}</p>
                     <div id="toolbar">
-                    			
                     			<label id="indice">0</label>
                     			<label id="codigoCliente"></label>
                     			<label id="codigoProd"></label>
@@ -83,7 +83,7 @@
                     		</button>
                     	</div>
                     	<div class="col-sm-1 col-md-1" >
-                    	<h6>Forma Pago</h6>
+                    	<h6 style="color: #c12929;">Forma Pago</h6>
                     	</div>
                         <div class="col-sm-2 col-md-2">
                                 
@@ -95,7 +95,7 @@
                             </div><!-- /input-group -->
                         </div>
                         <div class="col-sm-1 col-md-1" >
-                    		<h6>Tipo Credito</h6>
+                    		<h6 style="color: #c12929;">Tipo Credito</h6>
                     	</div>
                         <div class="col-sm-2 col-md-2">
                             
@@ -106,12 +106,12 @@
                             </select> 
                         </div>
                         <div class="col-sm-1 col-md-1">
-                        	<h6>Limite Credito</h6>
+                        	<h6 style="color: #c12929;">Limite Credito</h6>
                         </div>
                         <div class="col-sm-2 col-md-2">
                             
                             <div class="input-group">
-                            	<span class="input-group-addon">Q.</span>
+                            	<span class="input-group-addon">${moneda}</span>
                                 <input type="text" class="form-control input-sm" placeholder="Limite de Cr&eacute;dito" id="lCredito" disabled>
                                 <span class="input-group-btn">
                                     <button class="btn btn-primary btn-sm" type="button" id="exp">
@@ -178,12 +178,13 @@
   						<span class="glyphicon glyphicon-save" aria-hidden="true" ></span> Grabar
 					</button>
                     
-                    <div class="well well-sm" >
+                    <div class="well well-sm" style="margin-top: 3px;">
                     	
                     	<div class="row">
-                        <div class="col-sm-3 col-md-3">
-                        		
-	                    	<h6>Tipo Documento</h6>
+                    	<div class="col-sm-1 col-md-1">
+                    		<h6 style="color: #c12929;">Tipo Doc.</h6>
+                    	</div>
+                        <div class="col-sm-2 col-md-2">
 		                    	<div class="input-group">
 		                        	<input type="text" class="form-control input-sm" placeholder="Tipo Documento" id="tDoc">
 		                           	<span class="input-group-btn">
@@ -191,8 +192,10 @@
 		                           	</span>
 		                        </div><!-- /input-group -->
                         </div>
-                        <div class="col-sm-3 col-md-3">
-                            <h6>No. Documento</h6>
+                        <div class="col-sm-1 col-md-1">
+                    		<h6 style="color: #c12929;">No. Doc.</h6>
+                    	</div>
+                        <div class="col-sm-2 col-md-2">
                             <div class="input-group">
                                 <input type="text" class="form-control input-sm" placeholder="No. Documento" id="nDoc">
                                 <span class="input-group-btn">
@@ -200,18 +203,27 @@
                                 </span>
                             </div><!-- /input-group -->
                         </div>
-                        <div class="col-sm-3 col-md-3">
-                        	<h6>Fecha Vencimiento</h6>
+                        <div class="col-sm-1 col-md-1">
+                        	<h6 style="color: #c12929;">F. Vence</h6>
+                        </div>
+                        <div class="col-sm-2 col-md-2">
+                        	
                            	<input type="text" class="form-control input-sm" id="fechaVencimiento" disabled>
                         </div>
-                        
+                        <div class="col-sm-1 col-md-1">
+                    		<h6 style="color: #c12929;">F. Entrega</h6>
+                    	</div>
+                        <div class="col-sm-2 col-md-2">
+                            <input type="text" class="form-control input-sm" id="fechaEntrega">
+                        </div>
                     </div><!--fin de fila-->
                     
                     
                     	<div class="row">
-                        <div class="col-sm-3 col-md-3">
-                            <h6>Nit</h6>
-<!--                            <label for="nit">NIT</label>-->
+                    	<div class="col-sm-1 col-md-1">
+                        	<h6 style="color: #c12929;">Nit</h6>
+                        </div>
+                        <div class="col-sm-2 col-md-2">
                             <div class="input-group">
                                 <input type="text" class="form-control input-sm" placeholder="NIT" id="nit">
                                 <span class="input-group-btn">
@@ -219,38 +231,42 @@
                                 </span>
                             </div><!-- /input-group -->
                         </div>
-                        <div class="col-sm-3 col-md-3">
-<!--                            <label for="nombre">Nombre Cliente</label>-->
-                            <h6>Nombre Cliente</h6>
+                        <div class="col-sm-1 col-md-1">
+                        	<h6 style="color: #c12929;">Nombre</h6>
+                        </div>
+                        <div class="col-sm-2 col-md-2">
                             <input type="text" class="form-control input-sm" id="nombre" placeholder="Nombre Cliente">     
                         </div>
-                        <div class="col-sm-6 col-md-6">
-<!--                            <label for="direcF">Dirección Factura</label>-->
-                            <h6>Dirección Factura</h6>
+                        
+                        <div class="col-sm-1 col-md-1">
+                        	<h6 style="color: #c12929;">Direc. Fac.</h6>
+                        </div>
+                        <div class="col-sm-2 col-md-2">
                             <input class="form-control input-sm" type="text" id="direcF" placeholder="Dirección Factura">
+                        </div>
+                        <div class="col-sm-1 col-md-1">
+                        	<h6 style="color: #c12929;">Direc. Env.</h6>
+                        </div>
+                        <div class="col-sm-2 col-md-2">
+                            <input class="form-control input-sm" type="text" id="direcE" placeholder="Dirección Envío">
                         </div>
                     </div><!--fin de fila-->
                     
-                    <div class="row" style="margin-top: 5px">
+                    <div class="row">
+                    	<div class="col-sm-1 col-md-1">
+                    		<h6 style="color: #c12929;">Teléfono</h6>
+                    	</div>
                         <div class="col-sm-2 col-md-2">
-<!--                            <label for="telefono">Teléfono</label>-->
-                            <h6>Teléfono</h6>
                             <input type="tel" class="form-control input sm" id="telefono" placeholder="Teléfono">
                         </div>
+                        <div class="col-sm-1 col-md-1">
+                    		<h6 style="color: #c12929;">Tarjeta</h6>
+                    	</div>
                         <div class="col-sm-2 col-md-2">
-                            <h6>Tarjeta</h6>
-<!--                            <label for="tarjeta">Tarjeta</label>-->
                             <input type="text" class="form-control input-sm" id="tarjeta" placeholder="Tarjeta" >     
                         </div>
-                        <div class="col-sm-2 col-md-2">
-                            <h6>Fecha Entrega</h6>
-                            <input type="text" class="form-control input-sm" id="fechaEntrega">
-                        </div>
-                        <div class="col-sm-6 col-md-6">
-                            <h6>Dirección Envío</h6>
-<!--                            <label for="direcE">Dirección Envío</label>-->
-                            <input class="form-control input-sm" type="text" id="direcE" placeholder="Dirección Envío">
-                        </div>
+                        
+                        
                     </div><!--fin de fila-->
                     
                     
