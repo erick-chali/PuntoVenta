@@ -56,57 +56,7 @@
     <div id="container">
         <div class="panel panel-default">
                 <div class="panel-body">
-                    
-                    <div class="well well-sm" id="parteSuperior">
-                    	
-                    	<div class="row">
-                        <div class="col-sm-4 col-md-4">
-                                <h6>Forma de Pago</h6>
-                            <div class="input-group" id="divFormaPago">
-                                <input type="text" class="form-control input-sm" placeholder="Forma Pago" id="fPago">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary btn-sm" type="button" id="f1">F1</button>
-                                </span>
-                            </div><!-- /input-group -->
-                        </div>
-                        <div class="col-sm-4 col-md-4">
-                            <h6>Tipo Credito</h6>
-                            <select class="form-control input-sm" id="tCredito" disabled> 
-                            	<option value="">Tipos de cr&eacute;dito</option>
-                            	<option value="1">credito</option>
-                            	<option value="2">contado</option>
-                            </select> 
-                        </div>
-                        <div class="col-sm-4 col-md-4">
-                            <h6>Limite Credito</h6>
-                            <div class="input-group">
-                            	<span class="input-group-addon">Q.</span>
-                                <input type="text" class="form-control input-sm" placeholder="Limite de Cr&eacute;dito" id="lCredito" disabled>
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary btn-sm" type="button" id="exp">
-                                    	<span class="glyphicon glyphicon-export" aria-hidden="true"></span>
-                                    </button>
-                                </span>
-                            </div><!-- /input-group -->
-                        </div>
-                        
-                    </div><!--fin de fila-->
-                    	
-                    	
-                    
-                    </div>
-                    
-                    <button type="button" id="ocultarSuperior" class="btn btn-primary btn-sm">
-                    	<span id="superiorDown" class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-                    </button>
-                    <button type="button" id="agregarFila" class="btn btn-primary btn-sm" >
-                    	<span class="glyphicon glyphicon-plus" aria-hidden="true" ></span>
-                    </button>
-                    <button type="button" id="barra" class="btn btn-primary btn-sm menu-btn">
-                    	<span id="superiorDown" class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-                    </button>
-                    <div class="well well-sm">
-                    		<div id="toolbar">
+                    <div id="toolbar">
                     			
                     			<label id="indice">0</label>
                     			<label id="codigoCliente"></label>
@@ -120,6 +70,59 @@
                     			<label id="fechaPrueba"></label>
                     			<label id="autoriza"></label>
                     		</div>
+                    
+                    
+                    <div class="well well-sm" id="parteInferior">
+                    	<div class="row">
+                    	<div class="col-sm-3 col-md-3">
+                    		<button type="button" id="agregarFila" class="btn btn-primary btn-sm" style="margin-top: 2px;">
+                    			<span class="glyphicon glyphicon-plus" aria-hidden="true" ></span>
+                    		</button>
+                    		<button type="button" id="barra" class="btn btn-primary btn-sm menu-btn" style="margin-top: 2px;">
+                    			<span id="superiorDown" class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                    		</button>
+                    	</div>
+                    	<div class="col-sm-1 col-md-1" >
+                    	<h6>Forma Pago</h6>
+                    	</div>
+                        <div class="col-sm-2 col-md-2">
+                                
+                            <div class="input-group" id="divFormaPago">
+                                <input type="text" class="form-control input-sm" placeholder="Forma Pago" id="fPago">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary btn-sm" type="button" id="f1">F1</button>
+                                </span>
+                            </div><!-- /input-group -->
+                        </div>
+                        <div class="col-sm-1 col-md-1" >
+                    		<h6>Tipo Credito</h6>
+                    	</div>
+                        <div class="col-sm-2 col-md-2">
+                            
+                            <select class="form-control input-sm" id="tCredito" disabled> 
+                            	<option value="">Tipos de cr&eacute;dito</option>
+                            	<option value="1">credito</option>
+                            	<option value="2">contado</option>
+                            </select> 
+                        </div>
+                        <div class="col-sm-1 col-md-1">
+                        	<h6>Limite Credito</h6>
+                        </div>
+                        <div class="col-sm-2 col-md-2">
+                            
+                            <div class="input-group">
+                            	<span class="input-group-addon">Q.</span>
+                                <input type="text" class="form-control input-sm" placeholder="Limite de Cr&eacute;dito" id="lCredito" disabled>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary btn-sm" type="button" id="exp">
+                                    	<span class="glyphicon glyphicon-export" aria-hidden="true"></span>
+                                    </button>
+                                </span>
+                            </div><!-- /input-group -->
+                        </div>
+                        
+                    </div><!--fin de fila-->
+                    		
 
                     	<!-- <div class="table-responsive" id="contenedorDatosVarios"> -->
                     	
@@ -175,7 +178,7 @@
   						<span class="glyphicon glyphicon-save" aria-hidden="true" ></span> Grabar
 					</button>
                     
-                    <div class="well well-sm" id="parteInferior">
+                    <div class="well well-sm" >
                     	
                     	<div class="row">
                         <div class="col-sm-3 col-md-3">

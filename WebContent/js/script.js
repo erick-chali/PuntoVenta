@@ -64,7 +64,8 @@
 	   });
 	   /**EVENTOS*/
 	   fechaActual();
-	   $('#nit').focus();
+	   $('#fPago').focus();
+	   $('#toolbar').hide();
 	   $('#tDoc').keydown(function(e){
 		   if(e.keyCode==13){
 			   cargarDatosDoc(1,$(this).val());
@@ -440,7 +441,17 @@
 		   
 //		   
 	   });
-	   
+	   $(document).on('keydown', '.cantidad', function (e){
+		   //en el arreglo las teclas permitidas
+		   if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110]) !== -1 ||
+		            (e.keyCode == 65 && ( e.ctrlKey === true || e.metaKey === true ) ) || 
+		            (e.keyCode >= 35 && e.keyCode <= 40)) {
+		                 return;
+		        }
+		        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+		            e.preventDefault();
+		        }
+	   });
    });/**fin de document.ready*/
     function cargarDetalle(tipoDoc, serie, numDocumento){
     	$.post('CargarDetalle',{tipoDoc : tipoDoc, serie : serie, numDocumento : numDocumento} ,function(responseJson) {
@@ -468,6 +479,7 @@
 	 		            	'</tr>');
 	 				  	rowNew.appendTo($('table#datosVarios tbody'));
 	 				  	$('#datosVarios > tbody > tr').eq(fila).find('.codigoProducto').text(value['codigoProducto']);
+	 				  	console.log($.trim(value['codigoProducto']));
 	 				  	$('#datosVarios > tbody > tr').eq(fila).find('.medida').text(value['uMedida']);
 	 				  	$('#datosVarios > tbody > tr').eq(fila).find('.descripcion').children().text(value['descripcion']);
 	 				  	$('#datosVarios > tbody > tr').eq(fila).find('.cantidad').text(parseInt(value['cantidad']));
@@ -606,7 +618,9 @@
 					    	 
 					     }
 					  });
+		 			 
 		 			$('#datosVarios > tbody > tr').eq(indiceFila).find('.cantidad').trigger('dblclick');
+		 			$('#datosVarios > tbody > tr').eq(indiceFila).find('.cantidad').val('');
 		 		   }
 		 				   
 		 	   });
@@ -739,7 +753,6 @@
 					    	 
 					     }
 					  });
-					$('#ocultarSuperior').trigger('click');
 					$('#datosVarios > tbody > tr').eq($('#indice').text()).find('.codigoProducto').trigger('dblclick');
 			    });
 		   }

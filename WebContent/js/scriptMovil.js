@@ -7,17 +7,7 @@
     		console.log(response.ip);
     	    
     	}, "jsonp");
-    	var device = navigator.userAgent
-
-    	if (device.match(/Iphone/i)|| device.match(/Ipod/i)|| device.match(/Android/i)|| device.match(/J2ME/i)|| device.match(/BlackBerry/i)|| device.match(/iPhone|iPad|iPod/i)|| device.match(/Opera Mini/i)|| device.match(/IEMobile/i)|| device.match(/Mobile/i)|| device.match(/Windows Phone/i)|| device.match(/windows mobile/i)|| device.match(/windows ce/i)|| device.match(/webOS/i)|| device.match(/palm/i)|| device.match(/bada/i)|| device.match(/series60/i)|| device.match(/nokia/i)|| device.match(/symbian/i)|| device.match(/HTC/i))
-    	{
-    	window.location = "movil.pv.jsp";
-
-    	}
-    	else
-    	{
-    		console.log('Dispositivo Normal');
-    	}
+    	
     	
 	   var codigoP, descripcion, medida, cantidad, disponible, precioU, porDesc, descuento, importe, envio, dm, observ;
 	   var subTotal = 0;
@@ -126,26 +116,15 @@
 		   cp = $('#datosVarios > tbody > tr').eq($('#indice').text()).children().eq(0).text();
 		   cargarProductosFiltroBodegas($('#codigoLista').text(), "", separarTexto(0, $('#fPago').val()), cp);
 	   });
-	   $(document).on('click', '.codigoProducto', function (){
+	   $(document).on('click', '#datosVarios > tbody > tr', function (){
 		   if($('#fPago').val() == ''){
 			   	alert('Debe ingresar una forma de pago antes de buscar cualquier producto');/***INCLUIR EN MODAL DE ERRORES ***/
 	   			$('#divFormaPago').addClass('has-error');
 	   			$('#fPago').focus();
-	   			$('#indice').text($(this).parent().index());
+	   			$('#indice').text($(this).index());
 		   }else{
-			   $('#indice').text($(this).parent().index());
+			   $('#indice').text($(this).index());
 			   $('#divFormaPago').removeClass('has-error');
-//			   $('.codigoProducto').editable(function(value, settings) {
-//				     return(value);
-//				  }, {
-//				     onblur  : 'cancel',
-//				     event   : 'dblclick',
-//				     style   : 'inherit',
-//				     callback : function(value, settings) {
-//				    	 traerProducto(value, separarTexto(0, $('#fPago').val()), $('#codigoLista').text() ,$('#indice').text());
-//				    	 
-//				     }
-//				  });
 			   $('#ingresoProducto').modal('toggle');
 		   }
 	   });

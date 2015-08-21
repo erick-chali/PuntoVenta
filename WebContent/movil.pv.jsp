@@ -30,7 +30,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="pv.jsp">Punto venta</a></li>
+            <li class="active"><a href="movil.pv.jsp">Punto venta</a></li>
             <li><a href=""></a></li>
             <li><a href=""></a></li>
             <li><a href=""></a></li>
