@@ -60,6 +60,9 @@
 	   			$('#filtroTextoProductos').val('');
 	   			$('#contenedorProductos').empty();
 	   			$('#buscarProductos').modal('toggle');
+           }else if(e.keyCode==119){
+        	   encontrarImagen($('#indice').text());
+        	   
            }
 	   });
 	   /**EVENTOS*/
@@ -1139,5 +1142,33 @@
 	   	 filaNueva.prependTo(('#datosVarios > tbody'));
 	   	 $('.kit').hide();
     }
-    
+    function encontrarImagen(indice){
+    	console.log('Indice de Fila' + indice)
+    	if($('#datosVarios > tbody > tr').eq(indice).find('.codigoProducto').text() == ''){
+    		alert('Debe ingresar un producto antes de poder ver su imagen o pdf');
+    	}else{
+    		console.log('CodigoProducto: ' + $('#datosVarios > tbody > tr').eq(indice).find('.codigoProducto').text());
+    		$.post('BuscarImagen',{
+    			
+    			codigoProducto : $('#datosVarios > tbody > tr').eq(indice).find('.codigoProducto').text()
+			   } ,function(responseText) {
+				   if(responseText!=null){
+					   if(responseText==''){
+						   var imagen = document.getElementById('imgProducto');
+				     	   imagen.src = 'imagenes/noImage.png';
+				     	   $('#infoProducto').modal('toggle');
+						   console.log('No existe imagen.');
+					   }else{
+						   var imagen = document.getElementById('imgProducto');
+						   console.log($.trim(responseText));
+						   var ruta = 'imagenes/';
+				     	   imagen.src = ruta.concat($.trim(responseText));
+				     	   $('#infoProducto').modal('toggle');
+					   }
+					   
+				   }   
+			   });
+    		
+    	}
+    }
   }(window.jQuery, window, document));

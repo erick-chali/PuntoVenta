@@ -496,6 +496,46 @@
 		    </div>
 		  </div>
 		</div><!-- FIN DE MODAL -->
+		
+		<!-- Modal BUSQUEDA INFORMACION PRODUCTO -->
+		<div id="infoProducto" class="modal" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="true" tabindex="-1">
+		  <div class="modal-dialog modal-lg">
+		    <!-- Modal content-->
+		    <div class="modal-content">
+		      <div class="modal-header">
+		      	<button type="button" class="close" data-dismiss="modal">&times;</button>
+		        <h4 class="modal-title" id="tituloModalKit">Informaci&oacute;n de Producto</h4>
+		      </div>
+		      <div class="modal-body">
+		      	
+		      	<ul class="nav nav-tabs">
+				  <li class="active"><a data-toggle="tab" href="#imagenProducto">Imagen</a></li>
+				  <li><a data-toggle="tab" href="#menu1">Caracter&iacute;sticas</a></li>
+				</ul>
+
+				<div class="tab-content">
+				  <div id="imagenProducto" class="tab-pane fade in active">
+				  	<div class="row">
+					  <div class="col-xs-6 col-sm-6 col-md-6">
+					    <a href="" class="thumbnail">
+					      <img id="imgProducto">
+					    </a>
+					  </div>
+					</div>
+				  </div>
+				  <div id="menu1" class="tab-pane fade">
+				  	<embed src="pdf/demo.pdf" width="600" height="500" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
+				  </div>
+				</div>
+		        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal" style="margin-top: 10px;" id="cancelar">Cerrar</button>
+		      </div>
+		      <div class="modal-footer">
+		      	<p id="notificacion" class="text-danger"></p>
+		      </div>
+		    </div>
+		  </div>
+		</div><!-- FIN DE MODAL -->
+		
 		</div>
     <script type="text/javascript" src="js/jquery-1.5.min.js"></script>
 	<script type="text/javascript">

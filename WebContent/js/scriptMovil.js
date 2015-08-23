@@ -8,7 +8,7 @@
     	    
     	}, "jsonp");
     	
-    	
+   
 	   var codigoP, descripcion, medida, cantidad, disponible, precioU, porDesc, descuento, importe, envio, dm, observ;
 	   var subTotal = 0;
 	   var Total;
@@ -54,7 +54,7 @@
 	   });
 	   /**EVENTOS*/
 	   fechaActual();
-	   $('#nit').focus();
+	   $('#fPago').focus();
 	   $('#tDoc').keydown(function(e){
 		   if(e.keyCode==13){
 			   cargarDatosDoc(1,$(this).val());
@@ -116,16 +116,27 @@
 		   cp = $('#datosVarios > tbody > tr').eq($('#indice').text()).children().eq(0).text();
 		   cargarProductosFiltroBodegas($('#codigoLista').text(), "", separarTexto(0, $('#fPago').val()), cp);
 	   });
-	   $(document).on('click', '#datosVarios > tbody > tr', function (){
+	   
+	   $('#datosVarios').on('click', '.codigoProducto', function (){
 		   if($('#fPago').val() == ''){
 			   	alert('Debe ingresar una forma de pago antes de buscar cualquier producto');/***INCLUIR EN MODAL DE ERRORES ***/
 	   			$('#divFormaPago').addClass('has-error');
 	   			$('#fPago').focus();
-	   			$('#indice').text($(this).index());
+	   			$('#indice').text($(this).parent().index());
 		   }else{
-			   $('#indice').text($(this).index());
 			   $('#divFormaPago').removeClass('has-error');
-			   $('#ingresoProducto').modal('toggle');
+			   $('.codigoProducto').editable(function(value, settings) {
+				   $('#indice').text($(this).parent().index());
+				     return(value);
+				  }, {
+				     onblur  : 'cancel',
+				     style   : 'inherit',
+				     callback : function(value, settings) {
+				    	 traerProducto(value, separarTexto(0, $('#fPago').val()), $('#codigoLista').text() ,$('#indice').text());
+				    	 
+				    	 
+				     }
+				  });
 		   }
 	   });
 	   $(document).on('click', '.cantidad', function (){
@@ -1105,6 +1116,20 @@
 	   	 
 	   	 filaNueva.prependTo(('#datosVarios > tbody'));
 	   	 $('.kit').hide();
+	   	$('.codigoProducto').editable(function(value, settings) {
+			   $('#indice').text($(this).parent().index());
+			     return(value);
+			  }, {
+			     onblur  : 'cancel',
+			     style   : 'inherit',
+			     callback : function(value, settings) {
+			    	 traerProducto(value, separarTexto(0, $('#fPago').val()), $('#codigoLista').text() ,$('#indice').text());
+			    	 
+			    	 
+			     }
+			  });
+	   	$('#datosVarios > tbody > tr').eq(0).find('.codigoProducto').trigger('click');
+	   	$('#datosVarios > tbody > tr').eq(0).find('.codigoProducto').focus();
     }
     
   }(window.jQuery, window, document));
